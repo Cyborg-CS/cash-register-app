@@ -1,7 +1,8 @@
 const billAmount = document.querySelector("#bill-amount");
-const cashGiven = document.querySelector("#cash-given");
-const checkBtn = document.querySelector("#check-btn");
-const totalChange = document.querySelector("#total-change");
+const checkButton = document.querySelector("#check btn");
 
-console.log(billAmount.value);
-// checkBtn.addEventListener("click", console.log(`Clicked !${cashGiven.value}`))
+checkButton.addEventListener("click", showBill)
+
+function showBill(){
+    console.log(billAmount.Value)
+}
