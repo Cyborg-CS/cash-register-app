@@ -7,16 +7,16 @@ const errorMessage = document.querySelector("#error-message");
 checkButton.addEventListener("click", function validateBillAndCash(){
     hideMessage();
     if(billAmount.value > 0){
-         if(cashGiven.value >= billAmount.value){
-           const returnAmount = cashGiven.value - billAmount.value
-           calculateChange(returnAmount);
-         }else{
-           
-             showMessage("Insufficient cash received !");
-         }
+       
     }else{
         showMessage("Invalid Bill Amount !");
-    }
+    }if(cashGiven.value >= billAmount.value){
+        const returnAmount = cashGiven.value - billAmount.value
+        calculateChange(returnAmount);
+      }else{
+        
+          showMessage("Insufficient cash received !");
+      }
 })
 
 
