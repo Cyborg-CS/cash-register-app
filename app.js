@@ -1,24 +1,34 @@
 const billAmount = document.querySelector("#bill-amount");
 const cashGiven = document.querySelector("#cash-given");
 const checkButton = document.querySelector("#check-btn");
-const errorMessage = document.querySelector("#error-message");
+const billErrorMessage = document.querySelector("#error-message-1");
+const cashErrorMessage = document.querySelector("#error-message-2")
 const notesSection = document.querySelectorAll(".notes");
+const totalChange =  document.querySelector("#total-change");
 
 const noOfNotes = [2000, 500, 200, 100, 50, 20, 10, 5, 1]
 
-checkButton.addEventListener("click", function validateBillAndCash() {
-    hideMessage();
-    if (billAmount.value > 0) {
 
-    } else {
-        showMessage("Invalid Bill Amount !");
-    }
-    if (billAmount.value <= cashGiven.value) {
-        const returnAmount = cashGiven.value - billAmount.value;
-        calculateChange(returnAmount);
-    } else {
-        showMessage("Insufficient Cash Received !");
-    }
+checkButton.addEventListener("click", function validateBillAndCash() {
+   
+    hideMessageForBill();
+    hideMessageForCash();
+    
+    let actualBillAmount = Number(billAmount.value);
+    let actualCashGiven = Number(cashGiven.value); 
+    
+    
+   if(actualBillAmount > 0){
+       if(actualBillAmount <  actualCashGiven){
+           const returnAmount =  actualCashGiven - actualBillAmount;
+           totalChange.innerText = returnAmount;
+           calculateChange(returnAmount)
+       }else{
+           showMessageForCash("Insufficient Cash Received !")
+       }
+   }else{
+       showMessage("Invalid Bill Amount !");
+   }
 })
 
 
@@ -34,11 +44,20 @@ function calculateChange(returnAmount) {
 }
 
 
-function hideMessage() {
-    errorMessage.style.display = "none";
+function hideMessageForBill() {
+    billErrorMessage.style.display = "none";
+}
+
+function hideMessageForCash() {
+    cashErrorMessage.style.display = "none";
 }
 
 function showMessage(message) {
-    errorMessage.style.display = "block";
-    errorMessage.innerText = message;
+    billErrorMessage.style.display = "block";
+    billErrorMessage.innerText = message;
+}
+
+function showMessageForCash(msg) {
+    cashErrorMessage.style.display = "block";
+    cashErrorMessage.innerText = msg;
 }

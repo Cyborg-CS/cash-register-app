@@ -10,29 +10,31 @@
 </head>
 
 <body>
-    <nav id="header-stroke"></nav>
+    <div class="header-stroke"></div>
     <section>
     <div class="container">
         <h1 id="header-text">Cash Register Manager</h1>
-        <p>Enter the bill amount and cash given by
+        
+        <p class="des-text">*Enter the bill amount and cash given by
             the customer and know the exact change with
-            number of notes to return
+            number of notes to return.
         </p>
-        <label for="bill-amount">Bill Amount:</label>
+        <label id="bill-lable" for="bill-amount">Bill Amount</label>
         <input id="bill-amount" type="text"/>
-        <label for="cash-given">Cash Given:</label>
+        <p id="error-message-1"></p>
+        <label id="cash-lable" for="cash-given">Cash Given</label>
         <input id="cash-given" type="text"/>
-        <button id="check-btn">Check</button>
-        <p id="error-message"></p>
-        <label for="total-change">Total Change:</label>
-        <div id="total change"></div>
+        <p id="error-message-2"></p>
+        <button id="check-btn">Check</button>       
+    <div class="grid-container">
+        <label for="total-change" id="total-change-lable">Total Change:</label>
+        <div id="total-change"></div>
+    </div>
        
-       
-        <table>
-            <caption>
-                Return change
-            </caption>
-            <tr>
+   <label for="table" id="table-lable">Return Change</label>
+    <table class="table">
+            
+            <tr class="table-row">
                 <th>No of Notes</th>
                 <td class="notes"></td>
                 <td class="notes"></td>
@@ -46,21 +48,22 @@
             </tr>
             <tr>
                 <th>Note</th>
-                <td>2000</td>
-                <td>500</td>
-                <td>200</td>
-                <td>100</td>
-                <td>50</td>
-                <td>20</td>
-                <td>10</td>
-                <td>5</td>
-                <td>1</td>
+                <td class="notes">2000</td>
+                <td class="notes">500</td>
+                <td class="notes">200</td>
+                <td class="notes">100</td>
+                <td class="notes">50</td>
+                <td class="notes">20</td>
+                <td class="notes">10</td>
+                <td class="notes">5</td>
+                <td class="notes">1</td>
             </tr>
         </table>
     </div>
+    <div id="bottom-stroke"></div>
 </section>
 
-    <script src="/app.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
